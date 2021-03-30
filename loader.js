@@ -1,22 +1,62 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const el = document.querySelector('.load__text');
-  const str = el.innerHTML.trim().split("");
+  const els = document.querySelectorAll('.load__text');
+  const cb = function(entries, observer) {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const ta = new TextAnimation(entry.target);
+        ta.animate();
+        observer.unobserve(entry.target);
+      } else {
 
-  el.innerHTML = str.reduce((acc, curr) => {
-    curr = curr.replace(/\/s+/, '&nbsp;');
-    return `${acc}<span class="char">${curr}</span>`;
-  }, "");
+      }
+    });
+  };
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0
+  };
+  const io = new IntersectionObserver(cb, options);
+  els.forEach(el => io.observe(el));
 });
 
+class TextAnimation {
+  constructor(el) {
+    this.DOM = {};
+    this.DOM.el = el instanceof HTMLElement ? el : document.querySelector(el);
+    this.chars = this.DOM.el.innerHTML.trim().split("");
+    this.DOM.el.innerHTML = this._splitText();
+  }
+  _splitText() {
+    return this.chars.reduce((acc, curr) => {
+      curr = curr.replace(/\s+/, '&nbsp;');
+      return `${acc}<span class="char">${curr}</span>`;
+    }, "");
+  }
+  animate() {
+    this.DOM.el.classList.toggle('inview');
+  }
+}
 
-// window.addEventListener('load', function() {
-//   setInterval(loaded, 2000);
-// });
+class TweenTextAnimation extends TextAnimation {
+  constructor(el) {
+    super(el);
+    this.DOM.chars = this.DOM.el.querySelectorAll('.char');
+  }
 
-// function loaded() {
-//   const loader = document.querySelector('.load');
-//   loader.classList.add('loaded');
-// }
+  animate() {
+    this.DOM.el.classList.add('inview');
+    this.DOM.chars.forEach((c, i) => {
+      TweenMax.to(c, .6, {
+        ease: Back.easeOut,
+        delay: i * .05,
+        startAt: {y: '-50%', opacity: 0},
+        y: '0%',
+        opacity: 1
+      });
+    });
+  }
+}
 
 window.addEventListener('load', function() {
   const loader = document.querySelector('.load');
