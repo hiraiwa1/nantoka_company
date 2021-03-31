@@ -38,26 +38,6 @@ class TextAnimation {
   }
 }
 
-class TweenTextAnimation extends TextAnimation {
-  constructor(el) {
-    super(el);
-    this.DOM.chars = this.DOM.el.querySelectorAll('.char');
-  }
-
-  animate() {
-    this.DOM.el.classList.add('inview');
-    this.DOM.chars.forEach((c, i) => {
-      TweenMax.to(c, .6, {
-        ease: Back.easeOut,
-        delay: i * .05,
-        startAt: {y: '-50%', opacity: 0},
-        y: '0%',
-        opacity: 1
-      });
-    });
-  }
-}
-
 window.addEventListener('load', function() {
   const loader = document.querySelector('.load');
   const loaderOpacity = function() {
