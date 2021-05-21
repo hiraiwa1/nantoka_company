@@ -1,0 +1,70 @@
+body {
+  min-width: 340px;
+}
+
+.font-lg {
+  font-size: 1.3em;
+}
+
+.header__logo--text {
+  margin-left: 16px;
+}
+
+.topview {
+  &__video {
+    width: 90%;
+  }
+  &__text {
+    padding: 10% 5%;
+    font-size: 1.1em;
+    width: 200px;
+    transform: translateY(-30%);
+  }
+}
+
+.news-content {
+  display: block;
+  &__img {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+  &__list {
+    padding: 0 20px;
+  }
+}
+
+
+.intoro-content__box {
+  width: 320px;
+}
+
+.footer {
+  display: block;
+  &__access,
+  &__box {
+    width: 100%;
+  }
+  &__access {
+    display: block;
+    &--box {
+      text-align: center;
+      padding-bottom: 40px;
+      &-text {
+        margin-bottom: 20px;
+      }
+      &-btn {
+        margin: 0 auto;
+      }
+    }
+  }
+  &__box {
+    // display: flex;
+    &--company {
+      padding: 10% 0;
+    }
+    &--copyright {
+      height: auto;
+      padding: 20px 0;
+    }
+  }
+}

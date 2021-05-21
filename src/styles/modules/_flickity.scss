@@ -1,0 +1,21 @@
+.carousel-cell {
+  margin: 0 10px;
+}
+
+.flickity-page-dots {
+  display: none;
+}
+
+.main-carousel::after {
+  content: 'flickity';
+  display: none;
+}
+
+@media screen and ( min-width: 961px ) {
+  .main-carousel::after {
+    content: '';
+  }
+  .carousel-cell {
+    margin: 0;
+  }
+}

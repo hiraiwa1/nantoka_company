@@ -1,0 +1,21 @@
+.font-lg {
+  font-size: 2em;
+}
+
+.inner {
+  max-width: 1290px;
+}
+
+.content {
+  &__bg {
+    width: 90vw;
+  }
+}
+
+.header {
+  &__nav {
+    &-item {
+      width: 100px;
+    }
+  }
+}

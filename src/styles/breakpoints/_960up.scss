@@ -1,0 +1,79 @@
+.font-m {
+  font-size: 14px;
+}
+
+.header {
+  &__toggle {
+    display: block;
+  }
+  &__menu {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    display: block;
+    background-color: rgba($color: $white_bg, $alpha: 0.7);
+    width: 100vw;
+    height: 100vh;
+    &--nav {
+      display: block;
+      text-align: center;
+      padding: 70px 0 0;
+      text-align: center;
+    }
+    &--access {
+      width: 100%;
+      margin-top: auto;
+      &-map {
+        width: 30%;
+        text-align: center;
+      }
+      &-contact {
+        width: 70%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.topview {
+  &__text {
+    padding: 60px 40px;
+    width: 50%;
+  }
+}
+
+.news-content__img {
+  object-fit: cover;
+  height: 284px;
+}
+
+.intoro-content__box {
+  width: 490px;
+  margin: 0 auto;
+}
+
+.about-content {
+  display: block;
+  &__img,
+  &__box {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.recruitment-content {
+  &__bg {
+    height: 284px;
+  }
+  &__img {
+    height: 284px;
+    object-fit: cover;
+  }
+}
+
+.interview-content {
+  display: block;
+  &__item {
+    width: 250px;
+  }
+}
