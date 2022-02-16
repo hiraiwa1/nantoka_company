@@ -4,7 +4,7 @@
 
 const elem = document.querySelector('.main-carousel');
 const flkty =  new Flickity(elem, {
-  cellAlign: 'left',
+  cellAlign: 'center',
   contain: true,
   wrapAround: true,
   watchCSS: true

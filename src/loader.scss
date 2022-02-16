@@ -1,0 +1,54 @@
+@import 'styles/setting/mixin';
+
+.load {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 10001;
+  transition: all ease 1s;
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    opacity: 0;
+    @media screen and (max-width: 450px) {
+      font-size: 18px;
+    }
+    
+    &.inview {
+      opacity: 1;
+      & .char {
+        display: inline-block;
+        @include animation (
+          $name: text-animate,
+          $duration: .5s,
+          $timing-function: cubic-vezier(0.39, 1.57, 0.58, 1),
+          $fill-mode: both
+        );
+        @for $i from 1 through 30 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 0.1s;
+          }
+        }
+        @keyframes text-animate {
+          0% {
+            opacity: 0;
+            transform: translateY(150%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+  &.loaded {
+    display: none;
+  }
+}
