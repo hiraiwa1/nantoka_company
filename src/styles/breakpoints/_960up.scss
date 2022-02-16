@@ -11,7 +11,7 @@
     top: 0;
     right: -100%;
     display: block;
-    background-color: rgba($color: $white_bg, $alpha: 0.7);
+    background-color: rgba($color: $white_bg, $alpha: 0.9);
     width: 100vw;
     height: 100vh;
     &--nav {
@@ -23,6 +23,10 @@
     &--access {
       width: 100%;
       margin-top: auto;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       &-map {
         width: 30%;
         text-align: center;
